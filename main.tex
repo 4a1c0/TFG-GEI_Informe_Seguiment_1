@@ -69,11 +69,10 @@ pau.casacubertao@e-campus.uab.cat\\}}
 \maketitle
 
 \begin{versionhistory}
-    \vhEntry{0.1}{07.17.19}{Pau}{Creació del primer esborrany}
-    %\vhEntry{1.1}{06.10.19}{Pau}{Modificacions proposades pel tutor (Raimon)}
+    \vhEntry{0.1}{07.11.19}{Pau}{Creació del primer esborrany.}
+    \vhEntry{1.0}{10.11.19}{Pau}{Modificacions proposades pel tutor (Lluís), afegir documentació CSR i accés a memòria i Gantt simple.}
 \end{versionhistory}
 
-Text en \todo{vermell} indica elements que falten per afegir al document.
 
 \begin{abstract}
 La finalitat d'aquest document és el de consignar els avenços efectuats en el desenvolupament del treball.
@@ -82,31 +81,38 @@ La finalitat d'aquest document és el de consignar els avenços efectuats en el 
 \section{Seguiment}
 
 A data de 7 de novembre de 2019 s'ha consolidat part de les tasques per al desenvolupament del projecte. 
-Les tasques de recerca inicial, i la majoria de les de programació s'han dut a terme. Com a resultat d'això es pot veure en el GitHub\cite{casacuberta_orta_4a1c0/rv32i-verilog_2019} com s'han implementat els blocs necessaris per a que el core pugui executar tot el repertori RV32I (a excepció de les crides \textit{FENCE} ja que no es faran servir en aquesta implementació). 
-Així com els tests corresponents per a verificar el correcte funcionament al executar instruccions.
+Les tasques de recerca inicial, i la majoria de les de programació s'han dut a terme. 
 
-Al desenvolupar les tasques anteriorment esmentades s'ha notat que fan falta ajustar el nombre d'hores de dedicació a diferents apartats (\todo{ incloure modificacions})
+El resultat es pot veure a GitHub\cite{casacuberta_orta_4a1c0/rv32i-verilog_2019}.En concret com s'han implementat els blocs necessaris per a que el core pugui executar tot el repertori RV32I (a excepció de les crides \textit{FENCE} ja que no es faran servir en aquesta implementació). 
+També s'han implementat els tests corresponents per a verificar el correcte funcionament al executar instruccions.
 
-\todo{Afegir documentació sobre CSR i memories (Write Transfer)}
+Durant aquest període s'han produït reunions amb en Raimon i una amb la resta del grup per presentar el codi. D'aquesta última va sorgir la necessitat d'implementar els registres de control i d'estat (CSR) i modificar l'accés a la memòria de dades per a poder determinar a través d'una màscara quins bytes d'una paraula de memòria s'han d'escriure.
 
-\todo{Gannt}
+La implementació dels mòduls bàsics d'un processador general (unitat de control, unitat d'execució, banc de registres i comptador de programa) no han sigut massa complicades degut a que a la bibliografia \cite{patterson_computer_2018} queda ben explicada. En canvi la implementació dels registres de control i d'estat (CSR) ha suposat un esforç major degut a que no hi ha exemples d'implementació, a part d'alguns comentaris al document de l'especificació del ISA \cite{waterman_volume_2019}. Per aquest motiu s'han consultat altres fonts com \cite{noauthor_fe310g:_2017} i \cite{noauthor_control_nodate}.
+
+A l'hora de determinar els senyals i la lògica per a la nova memòria de dades basant-se en una implementació del projecte picorv32 \cite{wolf_cliffordwolf/picorv32_2019}. Aquesta implementació permet guardar dades de 8, 16 o 32 bits en un sol accés afegint un senyal de control extra.
+
+Al desenvolupar les tasques anteriorment esmentades s'ha notat que fan falta ajustar el nombre d'hores de dedicació a diferents apartats, en concret la part d'implementació rep un increment d'hores.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{gantt.pdf}
+\caption{Gantt bàsic amb la planificació a falta de subdividir en tasques.}
+\label{fig:gantt}
+\end{figure}
 
 \section{Canvis}
 
-Veient el desenvolupament del projecte, i per reduir riscos per la seva finalització, s'ha decidit treure dels objectius la implementació del core amb pipeline degut a que aquesta pot comportar un temps elevat per a ésser completada en el calendari establert.
+Veient el ritme en desenvolupament del projecte, i per reduir riscos per la seva finalització, s'ha decidit eliminar dels objectius la implementació del core amb pipeline degut a que aquesta pot comportar un temps elevat per a ésser completada en el calendari establert.
+
+En el següent informe es detallarà més el diagrama de Gantt (figura \ref{fig:gantt}) (incloent més tasques).
 
 
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics[width=\textwidth]{}
-%\caption{Gantt Diagram. This figure lists all tasks, milestones and summaries of the project}
-%\label{fig:gantt}
-%\end{figure}
 
 
-\subsection{Metodologia}
+\section{Metodologia}
 
-En relació a la metodologia per a desenvolupar les tasques es la mateixa que es determina en l'informe inicial. Bisetmanalment es planifica una reunió amb el tutor (ja sigui personalment o via correu electrònic) per comentar els avenços i planificar les següents tasques que es desenvoluparan fins a la següent reunió. Generant així una llista de tasques per a fer.
+En relació a la metodologia per a desenvolupar les tasques es la mateixa que es determina en l'informe inicial. Bisetmanalment es planifica una reunió amb el tutor (ja sigui personalment o via correu electrònic) per comentar els avenços i planificar les següents tasques que es desenvoluparan fins a la següent reunió. Proposo utitilitzar l'eina de gestió de projectes que proporciona GitHub la qual funciona com una taulell kanban (Permet gestionar tasques entre diferents columnes, ToDo, InProgress i Done) \cite{noauthor_4a1c0/rv32i-verilog_nodate}. 
 
 En relació a edició d'informes es proposa fer un repositori de git per a cada document per a poder fer un seguiment de versions i poder accedir a cada versió de manera oberta.
 
